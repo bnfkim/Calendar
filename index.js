@@ -10,12 +10,6 @@ const viewMonth = date.getMonth();
 const viewDate = date.getDate();
 const viewDay = date.getDay();
 
-// 한번 찍어봅시다!
-console.log(viewYear); // -> 2022년
-console.log(viewMonth); // 6 ->6월로 출력 왜? 0부터 시작하기 때문 +1 해줘야 현재 달로 나옴 !
-console.log(viewDate); // 7
-console.log(viewDay); // 4 (=목요일)
-
 //querySelector을 통해서 class에 연결 -> 버튼 위에 오늘 날짜 작성됨
 document.querySelector('.year-month').textContent = `${viewYear}년 ${viewMonth + 1}월`;
 
@@ -82,14 +76,25 @@ for(let i=1; i <7-thisDay; i++){
     nextDates.push(i);
 }
 
-//날짜 데이터를 html로 그려넣기
-//concat 메서드를 통해 세 배열 합치기
+// !! 날짜 데이터를 html로 그려넣기
+//concat() : 메서드를 통해 세 배열 합치기
+// 이전 달 dates + 현재 달 dates + 다음 달 dates
+// ex) dates = [26 27 28 29 30 1 2 3  ... 29 30 31 1 2 3 4 5 6]
 const dates = prevDates.concat(thisDates, nextDates);
 
-//forEach 메서드로 전체 요소를 돌면서 html 코드로 데이터를 수정
+//forEach() : 전체 요소를 돌면서 html 코드로 데이터를 수정
 dates.forEach((date, i) => {
     dates[i] = `<div class="date">${date}</div>`;
 });
 
+//확인해보기! 엥 아무것도 없네? 우리가 위에 한 것은 그려넣은 것 X
+//dates 배열을 수정해준 것.
+//dates [<div class="date">26</div>, <div class="date">27</div> ... ]
+//이렇게 배열을 수정해줬으니 이제 html에 찍어내줍시다!
+
 //dates 클래스 영역에 dates 배열에, join 메서드를 호출한 결과를, 그려넣음
+//join('')을 해주는 이유 중간에 "," 값이 들어가짐
 document.querySelector('.dates').innerHTML = dates.join('');
+
+//만들고 개발자 도구로 확인!
+//확인해보면 <div class="date">26</div> .... <div class="date">6</div> 생성되어있음
