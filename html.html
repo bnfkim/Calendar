@@ -16,12 +16,12 @@
             <div class="year-month"></div>
             <div class="nav">
                 <!-- 마크업 언어에서는 '<' '>' 인식하지 못함 그래서 '<'는 '&lt'로, '>'는 '&gt'로 작성 -->
-                <button class="nav-btn go-prev">&lt;</button> 
-                <button class="nav-btn go-today">Today</button>
-                <button class="nav-btn go-next">&gt;</button>
+                <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button> 
+                <button class="nav-btn go-today" onclick="curMonth()">TODAY</button>
+                <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>
             </div>
         </div>
-
+        <!-- 캘린더 중앙 메인 영역 -->
         <div class="main">
             <!-- 요일 영역 -->
             <div class="days">
