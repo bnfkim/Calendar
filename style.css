@@ -85,3 +85,26 @@
 .date:nth-child(7n) {
   color: #3374ff;
 }
+
+.other {
+  opacity: 0.3;
+}
+
+.today {
+  position: relative;
+  color: #FFFFFF;
+}
+
+.today::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  width: 30px;
+  height: 30px;
+  display: block;
+  background-color: #FF0000;
+  border-radius: 50%;
+  content: '';
+}

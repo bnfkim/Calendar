@@ -90,4 +90,3 @@ const curMonth = () => {
     date = new Date();
     makeCalendar();
 }
-
