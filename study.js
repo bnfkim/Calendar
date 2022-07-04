@@ -154,12 +154,14 @@ makeCalendar()
 
 //이전 달 그리기
 const prevMonth = () => {
+    date.setDate(1);
     date.setMonth(date.getMonth() - 1);
     makeCalendar();
-}
+  }
   
 //다음 달 그리기
 const nextMonth = () => {
+    date.setDate(1);
     date.setMonth(date.getMonth() + 1);
     makeCalendar();
 }
